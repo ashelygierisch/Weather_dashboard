@@ -1,0 +1,38 @@
+.header {
+    padding: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: x-large; 
+    background-color: #2a607c;
+    color: #ffffff;
+}
+.searchCol {
+    float: left;
+    width: 23%;
+    height: 100%;
+    padding: 15px;
+    color: black(61, 44, 44);
+    background: lightgray;
+    /* margin-bottom: 15px; */
+}
+
+#inputedName {
+    padding: 15px 30px;
+    white-space: pre-wrap;
+}
+.center {
+    float: right;
+    width: 70%;
+    height: 100%;
+    padding: 20px 20px;
+    font-weight: lighter;
+    /* border-style: ridge; */
+}
+#weeklyForecast {
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 20px 20px;
+}
+
+  

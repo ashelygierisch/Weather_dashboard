@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Weather Dashboard Header-->
+<div class="container-fluid">
+    <!--header using nav element-->
+    <nav class="header" class="display-3">
+        <h1>Weather Dashboard</h1>
+    </nav>
+
+<!--Search city on the left of page-->
+    <div class="row m-1">
+        <div class ="col-3 searchCol">
+            <h5>Search for a City:</h5>
+            <div class = "input-group mb-3">
+                <input type="text" id="cityName" class="form-control" placeholder="City Name"></input>
+                    <div class ="input-group-append"> 
+                        <button class="btn btn-outline-primary" type="button" id="searchCityBtn"><i class="fas fa-search"></i></button>
+                    </div>
+            </div>
+            <div class="list-group"></div>
+        </div>
+        <div class ="col-9">
+            <div class = "row p-2">
+                <div class="card">
+                    <div class="card-body"></div>
+                    <h1 id = "cityName"></h1>
+                    <h3 id = "icon"></h3>
+                    <h3 id = "temp"></h3>
+                    <h3 id = "humidity"></h3>
+                    <h3 id = "wind"></h3>
+                    <h3 id = "uvIndex"></h3>
+                </div>
+            </div>
+                <div class ="row">
+                    <h4>5 Day Forecast</h4>
+                </div>
+            <div id = "weeklyForecast" class ="row"></div>
+                    
+        </div>
+    </div>
+</div> 
+
+<script src="https://kit.fontawesome.com/1cc5977b2c.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
