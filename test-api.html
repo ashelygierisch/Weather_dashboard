@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Key Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Dashboard API Test</h1>
+    
+    <div class="test-result info">
+        <h3>Current Status</h3>
+        <p>The API key <code>4140034c75a10c75298c4be081943fce</code> is returning 401 Unauthorized errors.</p>
+    </div>
+    
+    <div class="test-result success">
+        <h3>Solution Implemented</h3>
+        <p>The weather dashboard has been updated with:</p>
+        <ul>
+            <li><strong>Demo Mode:</strong> Automatically switches to realistic mock data when API fails</li>
+            <li><strong>Error Handling:</strong> Clear user notifications about API issues</li>
+            <li><strong>Fallback System:</strong> Seamless transition between real and demo data</li>
+            <li><strong>UX Improvements:</strong> Loading states, visual feedback, and better error messages</li>
+        </ul>
+    </div>
+    
+    <div class="test-result info">
+        <h3>How to Fix (For Real Data)</h3>
+        <ol>
+            <li>Go to <a href="https://openweathermap.org/api" target="_blank">OpenWeatherMap API</a></li>
+            <li>Sign up for a free account (no credit card required)</li>
+            <li>Get your free API key</li>
+            <li>Open <code>script.js</code> and replace the API_KEY value:</li>
+        </ol>
+        <pre><code>// Replace this line in script.js:
+const API_KEY = "4140034c75a10c75298c4be081943fce";
+
+// With your new key:
+const API_KEY = "your_new_api_key_here";</code></pre>
+    </div>
+    
+    <div class="test-result success">
+        <h3>Test the Dashboard</h3>
+        <p>Open <a href="index.html">index.html</a> in your browser to see the enhanced weather dashboard.</p>
+        <p>Even with the API issue, the dashboard will:</p>
+        <ul>
+            <li>Display beautiful demo weather data</li>
+            <li>Show realistic 5-day forecasts</li>
+            <li>Maintain search history (using localStorage)</li>
+            <li>Provide color-coded UV index alerts</li>
+            <li>Work perfectly on all screen sizes</li>
+        </ul>
+    </div>
+    
+    <div class="test-result info">
+        <h3>Files Updated</h3>
+        <ul>
+            <li><code>index.html</code> - Complete redesign with modern UI</li>
+            <li><code>style.css</code> - Beautiful styling with animations</li>
+            <li><code>script.js</code> - Enhanced with demo mode and error handling</li>
+            <li><code>README.md</code> - Updated documentation</li>
+        </ul>
+    </div>
+    
+    <script>
+        // Test the API key
+        async function testAPI() {
+            const apiKey = "4140034c75a10c75298c4be081943fce";
+            const testUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}`;
+            
+            try {
+                const response = await fetch(testUrl);
+                const data = await response.json();
+                
+                const resultDiv = document.getElementById('apiTestResult');
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <h3>API Test Result: SUCCESS</h3>
+                        <p>API key is working! Status: ${response.status}</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                    resultDiv.className = 'test-result success';
+                } else {
+                    resultDiv.innerHTML = `
+                        <h3>API Test Result: FAILED</h3>
+                        <p>Status: ${response.status} - ${data.message || 'Unauthorized'}</p>
+                        <p><em>This is expected - the dashboard includes demo mode.</em></p>
+                    `;
+                    resultDiv.className = 'test-result error';
+                }
+            } catch (error) {
+                const resultDiv = document.getElementById('apiTestResult');
+                resultDiv.innerHTML = `
+                    <h3>API Test Result: ERROR</h3>
+                    <p>${error.message}</p>
+                    <p><em>Network error or API unavailable</em></p>
+                `;
+                resultDiv.className = 'test-result error';
+            }
+        }
+        
+        // Run test when page loads
+        window.onload = testAPI;
+    </script>
+    
+    <div id="apiTestResult" class="test-result">
+        <h3>Testing API Key...</h3>
+        <p>Please wait while we test the OpenWeatherMap API key.</p>
+    </div>
+    
+    <p><a href="index.html">← Back to Weather Dashboard</a></p>
+</body>
+</html>
